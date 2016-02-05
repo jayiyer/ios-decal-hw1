@@ -22,7 +22,13 @@ class Words {
 //: ### variables the same type? If not, why?
 
 
-//: Yes, they are both the same type (String). The instance variables are defined as Strings, and the constructor takes in Strings for the values of those instance variables.
+//: Yes, they are both the same type (String). The instance variables are defined as Strings, 
+//: and the constructor takes in Strings for the values of those instance variables. It is
+//: clear from the structure of the Words class that wordA and wordB will have String values 
+//: after they are first set, so it makes sense for the wordA and wordB instance variables to 
+//: be implicitly unwrapped and not have to be checked every time it is accessed. The init
+//: parameters here are optional, meaning they might contain some String value or no value at
+//: all. By definition, these cannot contain any values of any other type.
 
 
 //: ## Q2: Variable Types and Function Types
@@ -43,7 +49,10 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//:  (1) The for-loop increment variable is created with a let, but that would mean that i is a constant. This is a contradiction because the loop incrementing variable should not be a constant. (2) Added "class" to the beginning of the function declaration, because arePalindromes() is called using the Words class.
+//: (1) The for-loop increment variable is created with a let, but that would mean that i is
+//: a constant. This is not correct because the loop incrementing variable should not be a
+//: constant. (2) Added "class" to the beginning of the function declaration, because
+//: arePalindromes() is called using the Words class.
 
 
 //: ## Q3: More Functions and Object Initialization
@@ -91,7 +100,16 @@ class Words {
 //: ### change) the code at the very bottom. Debug the function.
 
 
-//: Problem re: countLetters: the dictionary is not initialized. To initialize the dictionary, I added " = [:]" in Line X. Other changes: (1) Changed isAnagram() from a static function to a normal function by removing "class" from the function declaration. isAnagram() is supposed to be called on an object of the words class, so it should not have the class prefix. (2) Changed final "return nil" to "return true" in order to return a Boolean. (3) Changed "var lenA" and "var lenB" to "let lenA" and "let lenB" because their values are not changed in the function. This was recommended by Xcode.
+//: (1) The problem with countLetters is that the dictionary is not initialized. To 
+//: initialize the dictionary, I added " = [:]" in Line X. (2) Other changes: 1) Changed 
+//: isAnagram() from a class function to a normal function by removing "class" from the
+//: function declaration. isAnagram() is supposed to be called on an object of the Words
+//: class, so it should not have the class prefix. 2) Changed final "return nil" to "return
+//: true" in order to return a Boolean. 3) Changed "var lenA" and "var lenB" to "let
+//: lenA" and "let lenB" because their values are not changed in the function. This 
+//: optimization was recommended by Xcode. 4) Removed "letter" from the "for (letter, count)
+//: in countLetters" loop because letter is not used in that for-loop. This optimization
+//: was recommended by Xcode.
     
     
 }
